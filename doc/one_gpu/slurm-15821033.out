@@ -1,0 +1,83 @@
+/work/users/y/k/ykwang/Long_Leaf_Test/GPU_TEST/peft-main/examples/fp4_finetuning/myenv/lib/python3.8/site-packages/setuptools/distutils_patch.py:25: UserWarning: Distutils was imported before Setuptools. This usage is discouraged and may exhibit undesirable behaviors or errors. Please use Setuptools' objects directly or at least import Setuptools first.
+  warnings.warn(
+Downloading (…)lve/main/config.json:   0%|          | 0.00/644 [00:00<?, ?B/s]Downloading (…)lve/main/config.json: 100%|██████████| 644/644 [00:00<00:00, 320kB/s]
+Downloading pytorch_model.bin:   0%|          | 0.00/663M [00:00<?, ?B/s]Downloading pytorch_model.bin:   2%|▏         | 10.5M/663M [00:00<00:15, 41.7MB/s]Downloading pytorch_model.bin:   8%|▊         | 52.4M/663M [00:00<00:03, 169MB/s] Downloading pytorch_model.bin:  13%|█▎        | 83.9M/663M [00:00<00:02, 196MB/s]Downloading pytorch_model.bin:  19%|█▉        | 126M/663M [00:00<00:02, 253MB/s] Downloading pytorch_model.bin:  25%|██▌       | 168M/663M [00:00<00:01, 285MB/s]Downloading pytorch_model.bin:  32%|███▏      | 210M/663M [00:00<00:01, 316MB/s]Downloading pytorch_model.bin:  38%|███▊      | 252M/663M [00:00<00:01, 330MB/s]Downloading pytorch_model.bin:  44%|████▍     | 294M/663M [00:01<00:01, 352MB/s]Downloading pytorch_model.bin:  51%|█████     | 336M/663M [00:01<00:00, 366MB/s]Downloading pytorch_model.bin:  57%|█████▋    | 377M/663M [00:01<00:00, 375MB/s]Downloading pytorch_model.bin:  63%|██████▎   | 419M/663M [00:01<00:00, 355MB/s]Downloading pytorch_model.bin:  70%|██████▉   | 461M/663M [00:01<00:00, 326MB/s]Downloading pytorch_model.bin:  76%|███████▌  | 503M/663M [00:01<00:00, 321MB/s]Downloading pytorch_model.bin:  82%|████████▏ | 545M/663M [00:01<00:00, 319MB/s]Downloading pytorch_model.bin:  89%|████████▊ | 587M/663M [00:01<00:00, 326MB/s]Downloading pytorch_model.bin:  95%|█████████▍| 629M/663M [00:02<00:00, 326MB/s]Downloading pytorch_model.bin: 100%|██████████| 663M/663M [00:02<00:00, 306MB/s]
+Some weights of OPTForCausalLM were not initialized from the model checkpoint at facebook/opt-350m and are newly initialized: ['lm_head.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Downloading (…)neration_config.json:   0%|          | 0.00/137 [00:00<?, ?B/s]Downloading (…)neration_config.json: 100%|██████████| 137/137 [00:00<00:00, 115kB/s]
+Downloading (…)okenizer_config.json:   0%|          | 0.00/685 [00:00<?, ?B/s]Downloading (…)okenizer_config.json: 100%|██████████| 685/685 [00:00<00:00, 632kB/s]
+Downloading (…)olve/main/vocab.json:   0%|          | 0.00/899k [00:00<?, ?B/s]Downloading (…)olve/main/vocab.json: 100%|██████████| 899k/899k [00:00<00:00, 10.2MB/s]
+Downloading (…)olve/main/merges.txt:   0%|          | 0.00/456k [00:00<?, ?B/s]Downloading (…)olve/main/merges.txt: 100%|██████████| 456k/456k [00:00<00:00, 69.4MB/s]
+Downloading (…)cial_tokens_map.json:   0%|          | 0.00/441 [00:00<?, ?B/s]Downloading (…)cial_tokens_map.json: 100%|██████████| 441/441 [00:00<00:00, 590kB/s]
+OPTForCausalLM(
+  (model): OPTModel(
+    (decoder): OPTDecoder(
+      (embed_tokens): Embedding(50272, 512, padding_idx=1)
+      (embed_positions): OPTLearnedPositionalEmbedding(2050, 1024)
+      (project_out): Linear4bit(in_features=1024, out_features=512, bias=False)
+      (project_in): Linear4bit(in_features=512, out_features=1024, bias=False)
+      (layers): ModuleList(
+        (0-23): 24 x OPTDecoderLayer(
+          (self_attn): OPTAttention(
+            (k_proj): Linear4bit(in_features=1024, out_features=1024, bias=True)
+            (v_proj): Linear4bit(in_features=1024, out_features=1024, bias=True)
+            (q_proj): Linear4bit(in_features=1024, out_features=1024, bias=True)
+            (out_proj): Linear4bit(in_features=1024, out_features=1024, bias=True)
+          )
+          (activation_fn): ReLU()
+          (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+          (fc1): Linear4bit(in_features=1024, out_features=4096, bias=True)
+          (fc2): Linear4bit(in_features=4096, out_features=1024, bias=True)
+          (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        )
+      )
+    )
+  )
+  (lm_head): Linear(in_features=512, out_features=50272, bias=False)
+)
+trainable params: 25165824 || all params: 204843008 || trainable%: 12.285420061787026
+torch.float16 27838464 0.13590146069325443
+torch.uint8 151519232 0.7396846662200938
+torch.float32 25485312 0.1244138730866518
+Downloading readme:   0%|          | 0.00/5.55k [00:00<?, ?B/s]Downloading readme: 100%|██████████| 5.55k/5.55k [00:00<00:00, 6.22MB/s]
+Downloading data files:   0%|          | 0/1 [00:00<?, ?it/s]
+Downloading data:   0%|          | 0.00/647k [00:00<?, ?B/s][A
+Downloading data: 100%|██████████| 647k/647k [00:00<00:00, 1.39MB/s][ADownloading data: 100%|██████████| 647k/647k [00:00<00:00, 1.38MB/s]
+Downloading data files: 100%|██████████| 1/1 [00:00<00:00,  2.08it/s]Downloading data files: 100%|██████████| 1/1 [00:00<00:00,  2.08it/s]
+Extracting data files:   0%|          | 0/1 [00:00<?, ?it/s]Extracting data files: 100%|██████████| 1/1 [00:00<00:00, 221.20it/s]
+Generating train split: 0 examples [00:00, ? examples/s]Generating train split: 2508 examples [00:00, 83580.82 examples/s]
+Map:   0%|          | 0/2508 [00:00<?, ? examples/s]Map:  40%|███▉      | 1000/2508 [00:00<00:00, 5416.27 examples/s]Map:  80%|███████▉  | 2000/2508 [00:00<00:00, 6118.62 examples/s]Map: 100%|██████████| 2508/2508 [00:00<00:00, 5863.66 examples/s]
+/work/users/y/k/ykwang/Long_Leaf_Test/GPU_TEST/peft-main/examples/fp4_finetuning/myenv/lib/python3.8/site-packages/transformers/optimization.py:411: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+  0%|          | 0/20 [00:00<?, ?it/s]You're using a GPT2TokenizerFast tokenizer. Please note that with a fast tokenizer, using the `__call__` method is faster than using a method to encode the text followed by a call to the `pad` method to get a padded encoding.
+  5%|▌         | 1/20 [00:04<01:17,  4.07s/it]                                                5%|▌         | 1/20 [00:04<01:17,  4.07s/it] 10%|█         | 2/20 [00:05<00:41,  2.32s/it]                                               10%|█         | 2/20 [00:05<00:41,  2.32s/it] 15%|█▌        | 3/20 [00:06<00:29,  1.73s/it]                                               15%|█▌        | 3/20 [00:06<00:29,  1.73s/it] 20%|██        | 4/20 [00:07<00:23,  1.46s/it]                                               20%|██        | 4/20 [00:07<00:23,  1.46s/it] 25%|██▌       | 5/20 [00:08<00:19,  1.31s/it]                                               25%|██▌       | 5/20 [00:08<00:19,  1.31s/it] 30%|███       | 6/20 [00:09<00:16,  1.21s/it]                                               30%|███       | 6/20 [00:09<00:16,  1.21s/it] 35%|███▌      | 7/20 [00:10<00:15,  1.16s/it]                                               35%|███▌      | 7/20 [00:10<00:15,  1.16s/it] 40%|████      | 8/20 [00:11<00:13,  1.12s/it]                                               40%|████      | 8/20 [00:11<00:13,  1.12s/it] 45%|████▌     | 9/20 [00:12<00:12,  1.10s/it]                                               45%|████▌     | 9/20 [00:12<00:12,  1.10s/it] 50%|█████     | 10/20 [00:13<00:10,  1.08s/it]                                                50%|█████     | 10/20 [00:13<00:10,  1.08s/it] 55%|█████▌    | 11/20 [00:14<00:09,  1.07s/it]                                                55%|█████▌    | 11/20 [00:14<00:09,  1.07s/it] 60%|██████    | 12/20 [00:15<00:08,  1.09s/it]                                                60%|██████    | 12/20 [00:15<00:08,  1.09s/it] 65%|██████▌   | 13/20 [00:16<00:07,  1.08s/it]                                                65%|██████▌   | 13/20 [00:16<00:07,  1.08s/it] 70%|███████   | 14/20 [00:17<00:06,  1.06s/it]                                                70%|███████   | 14/20 [00:17<00:06,  1.06s/it] 75%|███████▌  | 15/20 [00:18<00:05,  1.06s/it]                                                75%|███████▌  | 15/20 [00:18<00:05,  1.06s/it] 80%|████████  | 16/20 [00:19<00:04,  1.05s/it]                                                80%|████████  | 16/20 [00:19<00:04,  1.05s/it] 85%|████████▌ | 17/20 [00:20<00:03,  1.05s/it]                                                85%|████████▌ | 17/20 [00:20<00:03,  1.05s/it] 90%|█████████ | 18/20 [00:21<00:02,  1.05s/it]                                                90%|█████████ | 18/20 [00:21<00:02,  1.05s/it] 95%|█████████▌| 19/20 [00:22<00:01,  1.04s/it]                                                95%|█████████▌| 19/20 [00:22<00:01,  1.04s/it]100%|██████████| 20/20 [00:23<00:00,  1.04s/it]                                               100%|██████████| 20/20 [00:23<00:00,  1.04s/it]                                               100%|██████████| 20/20 [00:23<00:00,  1.04s/it]100%|██████████| 20/20 [00:23<00:00,  1.20s/it]
+/work/users/y/k/ykwang/Long_Leaf_Test/GPU_TEST/peft-main/examples/fp4_finetuning/myenv/lib/python3.8/site-packages/transformers/generation/utils.py:1270: UserWarning: You have modified the pretrained model configuration to control generation. This is a deprecated strategy to control generation and will be removed soon, in a future version. Please use a generation configuration file (see https://huggingface.co/docs/transformers/main_classes/text_generation )
+  warnings.warn(
+/work/users/y/k/ykwang/Long_Leaf_Test/GPU_TEST/peft-main/examples/fp4_finetuning/myenv/lib/python3.8/site-packages/transformers/generation/utils.py:1468: UserWarning: You are calling .generate() with the `input_ids` being on a device type different than your model's device. `input_ids` is on cpu, whereas the model is on cuda. You may experience unexpected behaviors or slower generation. Please make sure that you have put `input_ids` to the correct device by calling for example input_ids = input_ids.to('cuda') before running `.generate()`.
+  warnings.warn(
+{'loss': 3.1749, 'learning_rate': 2.9999999999999997e-05, 'epoch': 0.01}
+{'loss': 3.0692, 'learning_rate': 5.9999999999999995e-05, 'epoch': 0.01}
+{'loss': 3.1797, 'learning_rate': 8.999999999999999e-05, 'epoch': 0.02}
+{'loss': 3.1277, 'learning_rate': 0.00011999999999999999, 'epoch': 0.03}
+{'loss': 3.0142, 'learning_rate': 0.00015, 'epoch': 0.03}
+{'loss': 3.2188, 'learning_rate': 0.00017999999999999998, 'epoch': 0.04}
+{'loss': 3.0812, 'learning_rate': 0.00020999999999999998, 'epoch': 0.04}
+{'loss': 2.9316, 'learning_rate': 0.00023999999999999998, 'epoch': 0.05}
+{'loss': 3.2109, 'learning_rate': 0.00027, 'epoch': 0.06}
+{'loss': 2.5868, 'learning_rate': 0.0003, 'epoch': 0.06}
+{'loss': 2.6333, 'learning_rate': 0.00027, 'epoch': 0.07}
+{'loss': 3.3678, 'learning_rate': 0.00023999999999999998, 'epoch': 0.08}
+{'loss': 2.772, 'learning_rate': 0.00020999999999999998, 'epoch': 0.08}
+{'loss': 2.7019, 'learning_rate': 0.00017999999999999998, 'epoch': 0.09}
+{'loss': 3.0345, 'learning_rate': 0.00015, 'epoch': 0.1}
+{'loss': 2.8863, 'learning_rate': 0.00011999999999999999, 'epoch': 0.1}
+{'loss': 2.9767, 'learning_rate': 8.999999999999999e-05, 'epoch': 0.11}
+{'loss': 2.7994, 'learning_rate': 5.9999999999999995e-05, 'epoch': 0.11}
+{'loss': 2.968, 'learning_rate': 2.9999999999999997e-05, 'epoch': 0.12}
+{'loss': 2.9149, 'learning_rate': 0.0, 'epoch': 0.13}
+{'train_runtime': 23.981, 'train_samples_per_second': 13.344, 'train_steps_per_second': 0.834, 'train_loss': 2.9824856996536253, 'epoch': 0.13}
+
+
+ Two things are infinite:  1) The universe is infinite.  2) The universe is infinite.
+I'm not sure if you're being sarcastic or not.
+I'm being sarcastic.
